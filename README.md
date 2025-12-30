@@ -38,14 +38,10 @@
     <audio id="bgm" autoplay loop>
       <source src="https://litter.catbox.moe/uwmrq71prfaw879b.mp3" type="audio/mpeg" />
     </audio>
-
-```
 <div class="card">
   <h1>Hai, Cena.</h1>
 
   <p id="text">
-```
-
 Sebelum tahun ini selesai,
 aku cuma ingin berterima kasih.
 Untuk hadirmu yang lembut.
@@ -124,8 +120,6 @@ Dan kalau suatu hari sepi itu kembali,
 aku ingin jadi tempat ia singgah sebentar.
 Bukan untuk menghapusnya.
 Tapi agar ia tidak lagi terasa sendirian. </p> </div>
-
-```
 <script>
   const text = document.getElementById("text");
   const content = text.innerText;
@@ -143,7 +137,5 @@ Tapi agar ia tidak lagi terasa sendirian. </p> </div>
 
   window.onload = typeWriter;
 </script>
-```
-
   </body>
 </html>
