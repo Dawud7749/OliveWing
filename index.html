@@ -1,11 +1,10 @@
-
 <html>
   <head>
     <meta charset="UTF-8" />
     <title>Untuk Kamu</title>
     <style>
       body {
-        background: #3472CE;
+        background: #FFC0CB;
         font-family: Arial, sans-serif;
         margin: 0;
         display: flex;
@@ -16,11 +15,12 @@
       }
 
 ```
+  /* Popup */
   .popup {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.58);
-    backdrop-filter: blur(3px);
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(4px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,24 +29,25 @@
     text-align: center;
     z-index: 1000;
   }
-
   .popup-content {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.15);
     padding: 22px 30px;
     border-radius: 16px;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
+    color: white;
   }
-
   .popup button {
     margin-top: 18px;
     padding: 10px 24px;
     border-radius: 14px;
     border: none;
-    background: #3472CE;
-    color: white;
+    background: #ffffff;
+    color: #FF4081;
     font-size: 16px;
+    font-weight: bold;
   }
 
+  /* Content Container */
   .container {
     opacity: 0;
     transition: opacity 1.2s ease;
@@ -54,71 +55,82 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
   }
 
+  /* Card */
   .card {
     width: 88%;
     max-width: 520px;
-    background: white;
+    background: rgba(255,255,255,0.12);
     padding: 28px;
     border-radius: 20px;
-    box-shadow: 0 0 40px rgba(0,0,0,0.08);
+    box-shadow: 0 0 40px rgba(0,0,0,0.10);
+    backdrop-filter: blur(8px);
     position: relative;
+    z-index: 2;
   }
 
   h1 {
     text-align: center;
     margin-top: 0;
+    color: white;
   }
 
+  /* Text */
   #text {
-    opacity: 0;
-    transition: opacity 2.2s ease;
+    opacity: 1;
     font-size: 15px;
     line-height: 23px;
     white-space: pre-line;
+    color: white;
   }
 
+  /* Music Play Button */
   .btn-play {
     margin: 0 auto 20px auto;
     display: block;
     width: 180px;
     padding: 10px;
     border-radius: 12px;
-    background: #2457A8;
-    color: white;
+    background: white;
+    color: #FF4081;
     font-size: 16px;
     border: none;
+    font-weight: bold;
   }
 
+  /* WhatsApp Button */
   .wa-btn {
     margin: 26px auto 32px auto;
     display: block;
     width: 210px;
     padding: 12px;
     border-radius: 12px;
-    background: #1AAD4A;
-    color: white;
+    background: white;
+    color: #1AAD4A;
     font-size: 17px;
     text-align: center;
     text-decoration: none;
+    font-weight: bold;
   }
 
-  /* kupu kupu */
+  /* Butterfly */
   .butterfly {
     position: absolute;
     width: 85px;
     top: -18px;
-    right: -10px;
-    opacity: 0.8;
+    right: -12px;
+    opacity: 0.9;
+    z-index: 3;
     animation: fly 6.5s ease-in-out infinite;
   }
 
   @keyframes fly {
     0% { transform: translate(0,0) rotate(0deg); }
-    25% { transform: translate(-10px,10px) rotate(4deg); }
-    50% { transform: translate(-4px,6px) rotate(-3deg); }
-    75% { transform: translate(-12px,4px) rotate(3deg); }
+    25% { transform: translate(-8px,10px) rotate(4deg); }
+    50% { transform: translate(-3px,6px) rotate(-3deg); }
+    75% { transform: translate(-10px,4px) rotate(3deg); }
     100% { transform: translate(0,0) rotate(0deg); }
   }
 </style>
@@ -127,7 +139,7 @@
   </head>
 
   <body>
-    <!-- popup intro -->
+    <!-- Intro Popup -->
     <div class="popup" id="intro">
       <div class="popup-content">
         <p>Boleh aku bicara jujur sebentar?</p>
@@ -136,20 +148,31 @@
     </div>
 
 ```
-<!-- music -->
+<!-- Music -->
 <audio id="bgm" loop>
   <source src="https://litter.catbox.moe/uwmrq71prfaw879b.mp3" type="audio/mpeg" />
 </audio>
 
-<!-- content -->
+<!-- Main Content -->
 <div class="container" id="content">
   <div>
     <button class="btn-play" onclick="playMusic()">Putar Musik 🎶</button>
 
     <div class="card">
       <img class="butterfly" src="https://cdn-icons-png.flaticon.com/512/7651/7651366.png" />
+
       <h1>Hai, Cena.</h1>
-      <p id="text">
+      <p id="text"></p>
+    </div>
+
+    <a class="wa-btn" target="_blank" href="https://wa.me/6282115180885">
+      Balas aku di WhatsApp 💬
+    </a>
+  </div>
+</div>
+
+<script>
+  const fullText = `
 ```
 
 Sebelum tahun ini selesai,
@@ -229,34 +252,33 @@ Menguatkan tanpa meninggikan suara.
 Dan kalau suatu hari sepi itu kembali,
 aku ingin jadi tempat ia singgah sebentar.
 Bukan untuk menghapusnya.
-Tapi agar ia tidak lagi terasa sendirian. </p> </div>
+Tapi agar ia tidak lagi terasa sendirian.
+`;
 
 ```
-    <!-- tombol WA -->
-    <a class="wa-btn" target="_blank" href="https://wa.me/6282115180885">
-      Balas aku di WhatsApp 💬
-    </a>
-  </div>
-</div>
-
-<script>
   function startPage() {
     document.getElementById("intro").style.display = "none";
     document.getElementById("content").style.opacity = "1";
   }
 
   function playMusic() {
-    const audio = document.getElementById("bgm");
-    audio.play();
+    document.getElementById("bgm").play();
     document.querySelector(".btn-play").style.display = "none";
-    document.getElementById("text").style.opacity = "1";
+    startTyping();
   }
 
-  window.onload = () => {
-    setTimeout(() => {
-      document.getElementById("text").style.opacity = "1";
-    }, 600);
-  };
+  function startTyping() {
+    const target = document.getElementById("text");
+    let i = 0;
+    function type() {
+      if (i < fullText.length) {
+        target.textContent += fullText.charAt(i);
+        i++;
+        setTimeout(type, 18);
+      }
+    }
+    type();
+  }
 </script>
 ```
 
