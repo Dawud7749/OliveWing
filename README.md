@@ -1,4 +1,58 @@
-<html> <head> <meta charset="UTF-8" /> <title>Untuk Kamu</title> <style> body { background: #faf7f2; font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; } .card { width: 90%; max-width: 500px; background: white; padding: 28px; border-radius: 18px; box-shadow: 0 0 24px rgba(0,0,0,0.08); text-align: center; } #text { font-size: 15px; line-height: 23px; white-space: pre-line; text-align: left; opacity: 0; } .spotify { margin-top: 24px; width: 100%; border-radius: 12px; } </style> </head> <body> <div class="card"> <h1>Hai, Cena.</h1> <p id="text"> Sebelum tahun ini selesai, aku cuma ingin berterima kasih. Untuk hadirmu yang lembut. Untuk kata yang menenangkan. Untuk waktu yang kamu bagi tanpa aku minta. Kamu jadi warna yang indah di ceritaku tahun ini. Sederhana, tapi terasa.
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Untuk Kamu</title>
+    <style>
+      body {
+        background: #faf7f2;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+      .card {
+        width: 90%;
+        max-width: 500px;
+        background: white;
+        padding: 28px;
+        border-radius: 18px;
+        box-shadow: 0 0 24px rgba(0,0,0,0.08);
+        text-align: center;
+      }
+      #text {
+        font-size: 15px;
+        line-height: 23px;
+        white-space: pre-line;
+        text-align: left;
+        opacity: 0;
+      }
+      audio {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <audio id="bgm" autoplay loop>
+      <source src="https://litter.catbox.moe/uwmrq71prfaw879b.mp3" type="audio/mpeg" />
+    </audio>
+
+```
+<div class="card">
+  <h1>Hai, Cena.</h1>
+
+  <p id="text">
+```
+
+Sebelum tahun ini selesai,
+aku cuma ingin berterima kasih.
+Untuk hadirmu yang lembut.
+Untuk kata yang menenangkan.
+Untuk waktu yang kamu bagi tanpa aku minta.
+Kamu jadi warna yang indah di ceritaku tahun ini.
+Sederhana, tapi terasa.
 
 Sejak pertama ketemu,
 aku tidak pernah membayangkan kita sampai sejauh ini.
@@ -69,17 +123,15 @@ Menguatkan tanpa meninggikan suara.
 Dan kalau suatu hari sepi itu kembali,
 aku ingin jadi tempat ia singgah sebentar.
 Bukan untuk menghapusnya.
-Tapi agar ia tidak lagi terasa sendirian.
-</p>
+Tapi agar ia tidak lagi terasa sendirian. </p> </div>
 
-  <iframe class="spotify" src="https://open.spotify.com/embed/track/3qREM4F1yEC4wAPZGwdrb6" width="100%" height="80" frameBorder="0" allow="autoplay"></iframe>
-</div>
-
+```
 <script>
   const text = document.getElementById("text");
   const content = text.innerText;
   text.innerText = "";
   let i = 0;
+
   function typeWriter() {
     if (i < content.length) {
       text.style.opacity = 1;
@@ -87,7 +139,11 @@ Tapi agar ia tidak lagi terasa sendirian.
       i++;
       setTimeout(typeWriter, 18);
     }
-    </body> </html>
   }
+
   window.onload = typeWriter;
 </script>
+```
+
+  </body>
+</html>
