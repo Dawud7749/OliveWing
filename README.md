@@ -3,34 +3,10 @@
     <meta charset="UTF-8" />
     <title>Untuk Kamu</title>
     <style>
-      body {
-        background: #faf7f2;
-        font-family: Arial, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        margin: 0;
-      }
-      .card {
-        width: 90%;
-        max-width: 500px;
-        background: white;
-        padding: 28px;
-        border-radius: 18px;
-        box-shadow: 0 0 24px rgba(0,0,0,0.08);
-        text-align: center;
-      }
-      #text {
-        font-size: 15px;
-        line-height: 23px;
-        white-space: pre-line;
-        text-align: left;
-        opacity: 0;
-      }
-      audio {
-        display: none;
-      }
+      body {background: #faf7f2;font-family: Arial, sans-serif;display: flex;justify-content: center;align-items: center;min-height: 100vh;margin: 0; }
+      .card {width: 90%;max-width: 500px;background: white;padding: 28px;border-radius: 18px;box-shadow: 0 0 24px rgba(0,0,0,0.08);text-align: center;}
+      #text {font-size: 15px;line-height: 23px;white-space: pre-line;text-align: left;opacity: 0;}
+      audio {display: none;}
     </style>
   </head>
 
