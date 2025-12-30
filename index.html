@@ -1,3 +1,23 @@
+Gas. Aku langsung masukin dua fitur tambahan:
+
+1. **Intro popup** (sebelum halaman terbuka penuh):
+   “Boleh aku bicara jujur sebentar?” + tombol lanjut
+   Baru setelah itu card + tulisan muncul pelan
+
+2. **Tombol WhatsApp di bawah card**
+   Tinggal kamu ganti nomor WA kamu
+
+Sekarang kamu tinggal:
+• Edit index.html
+• Hapus semua
+• Paste kode di bawah
+• Ganti nomor WhatsApp di `href="https://wa.me/628xxxx"`
+
+Siap.
+
+---
+
+## KODE FINAL (Popup cinematic + animasi kupu + tombol WA)
 
 <html>
   <head>
@@ -5,59 +25,152 @@
     <title>Untuk Kamu</title>
     <style>
       body {
-        background: #faf7f2;
+        background: #3472CE;
         font-family: Arial, sans-serif;
+        margin: 0;
         display: flex;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         min-height: 100vh;
-        margin: 0;
-        padding-top: 12vh;
+        overflow-x: hidden;
       }
-      .card {
-        width: 88%;
-        max-width: 480px;
-        background: white;
-        padding: 24px;
-        border-radius: 18px;
-        box-shadow: 0 0 24px rgba(0,0,0,0.08);
-      }
-      h1 {
-        text-align: center;
-        margin-top: 0;
-      }
-      #text {
-        font-size: 15px;
-        line-height: 23px;
-        white-space: pre-line;
-        opacity: 1;
-      }
-      .btn {
-        margin: 16px auto;
-        display: block;
-        width: 160px;
-        padding: 8px;
-        border-radius: 12px;
-        background: #007aff;
-        color: white;
-        font-size: 15px;
-        border: none;
-      }
-    </style>
+
+```
+  .popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.58);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    z-index: 1000;
+  }
+
+  .popup-content {
+    background: rgba(255,255,255,0.1);
+    padding: 22px 30px;
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+  }
+
+  .popup button {
+    margin-top: 18px;
+    padding: 10px 24px;
+    border-radius: 14px;
+    border: none;
+    background: #3472CE;
+    color: white;
+    font-size: 16px;
+  }
+
+  .container {
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    padding-top: 12vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card {
+    width: 88%;
+    max-width: 520px;
+    background: white;
+    padding: 28px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.08);
+    position: relative;
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 0;
+  }
+
+  #text {
+    opacity: 0;
+    transition: opacity 2.2s ease;
+    font-size: 15px;
+    line-height: 23px;
+    white-space: pre-line;
+  }
+
+  .btn-play {
+    margin: 0 auto 20px auto;
+    display: block;
+    width: 180px;
+    padding: 10px;
+    border-radius: 12px;
+    background: #2457A8;
+    color: white;
+    font-size: 16px;
+    border: none;
+  }
+
+  .wa-btn {
+    margin: 26px auto 32px auto;
+    display: block;
+    width: 210px;
+    padding: 12px;
+    border-radius: 12px;
+    background: #1AAD4A;
+    color: white;
+    font-size: 17px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  /* kupu kupu */
+  .butterfly {
+    position: absolute;
+    width: 85px;
+    top: -18px;
+    right: -10px;
+    opacity: 0.8;
+    animation: fly 6.5s ease-in-out infinite;
+  }
+
+  @keyframes fly {
+    0% { transform: translate(0,0) rotate(0deg); }
+    25% { transform: translate(-10px,10px) rotate(4deg); }
+    50% { transform: translate(-4px,6px) rotate(-3deg); }
+    75% { transform: translate(-12px,4px) rotate(3deg); }
+    100% { transform: translate(0,0) rotate(0deg); }
+  }
+</style>
+```
+
   </head>
 
   <body>
-    <audio id="bgm" loop>
-      <source src="https://litter.catbox.moe/uwmrq71prfaw879b.mp3" type="audio/mpeg" />
-    </audio>
+    <!-- popup intro -->
+    <div class="popup" id="intro">
+      <div class="popup-content">
+        <p>Boleh aku bicara jujur sebentar?</p>
+        <button onclick="startPage()">Lanjut</button>
+      </div>
+    </div>
 
 ```
-<button class="btn" onclick="playMusic()">Putar Musik 🎶</button>
+<!-- music -->
+<audio id="bgm" loop>
+  <source src="https://litter.catbox.moe/uwmrq71prfaw879b.mp3" type="audio/mpeg" />
+</audio>
 
-<div class="card">
-  <h1>Hai, Cena.</h1>
+<!-- content -->
+<div class="container" id="content">
+  <div>
+    <button class="btn-play" onclick="playMusic()">Putar Musik 🎶</button>
 
-  <p id="text">
+    <div class="card">
+      <img class="butterfly" src="https://cdn-icons-png.flaticon.com/512/7651/7651366.png" />
+      <h1>Hai, Cena.</h1>
+      <p id="text">
+```
 
 Sebelum tahun ini selesai,
 aku cuma ingin berterima kasih.
@@ -138,15 +251,36 @@ aku ingin jadi tempat ia singgah sebentar.
 Bukan untuk menghapusnya.
 Tapi agar ia tidak lagi terasa sendirian. </p> </div>
 
+```
+    <!-- tombol WA -->
+    <a class="wa-btn" target="_blank" href="https://wa.me/6282115180885">
+      Balas aku di WhatsApp 💬
+    </a>
+  </div>
+</div>
 
 <script>
+  function startPage() {
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("content").style.opacity = "1";
+  }
+
   function playMusic() {
     const audio = document.getElementById("bgm");
     audio.play();
-    document.querySelector(".btn").style.display = "none";
+    document.querySelector(".btn-play").style.display = "none";
+    document.getElementById("text").style.opacity = "1";
   }
+
+  window.onload = () => {
+    setTimeout(() => {
+      document.getElementById("text").style.opacity = "1";
+    }, 600);
+  };
 </script>
+```
 
   </body>
 </html>
+
 
