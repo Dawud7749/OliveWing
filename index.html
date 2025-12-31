@@ -149,7 +149,7 @@ function typeAll(){
     if(i < beforeLirik.length){
       textBox.textContent += beforeLirik.charAt(i);
       i++;
-      setTimeout(typeBefore, 90);
+      setTimeout(typeBefore, 100);
     } else {
       lyric.style.opacity = 1;
       setTimeout(typeAfter, 2600);
@@ -162,7 +162,7 @@ function typeAll(){
       if(j < afterLirik.length){
         textBox.textContent += afterLirik.charAt(j);
         j++;
-        setTimeout(t, 90);
+        setTimeout(t, 100);
       }
     }
     t();
