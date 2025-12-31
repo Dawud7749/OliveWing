@@ -3,23 +3,128 @@
     <meta charset="UTF-8" />
     <title>Untuk Kamu</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
     <style>
-      body { background: #FFC0CB; font-family: "Poppins", sans-serif; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow-x: hidden; }
-      .popup { position: fixed; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); display: flex; justify-content: center; align-items: center; flex-direction: column; color: white; text-align: center; z-index: 1000; }
-      .popup-box { background: rgba(255,255,255,0.15); padding: 24px 32px; border-radius: 18px; backdrop-filter: blur(8px); color: white; }
-      .popup button { margin-top: 18px; padding: 10px 26px; border-radius: 14px; border: 2px solid white; background: white; color: #FF4081; font-size: 16px; font-weight: 700; cursor: pointer; }
-      .container { opacity: 0; transition: opacity .9s ease; padding-top: 12vh; width: 100%; display: flex; justify-content: center; align-items: flex-start; }
-      .card { width: 88%; max-width: 520px; background: rgba(255,255,255,0.12); padding: 28px; border-radius: 20px; box-shadow: 0 0 40px rgba(0,0,0,0.1); backdrop-filter: blur(8px); position: relative; z-index: 2; }
-      h1 { text-align: center; margin-top: 0; color: white; }
-      #text { color: white; line-height: 23px; font-size: 15px; white-space: pre-line; }
-      .btn-play { margin: 0 auto 20px auto; display: block; width: 180px; padding: 10px; border-radius: 12px; background: white; color: #FF4081; font-size: 15px; font-weight: 600; border: none; cursor: pointer; }
-      .wa-btn { margin: 26px auto 32px auto; display: block; width: 210px; padding: 12px; border-radius: 12px; background: white; color: #1AAD4A; font-size: 17px; text-align: center; text-decoration: none; font-weight: 700; }
-      .butterfly { position: absolute; width: 85px; top: -18px; right: -14px; opacity: .9; animation: fly 6.5s ease-in-out infinite; }
-      @keyframes fly { 0%{transform:translate(0,0)rotate(0deg);}25%{transform:translate(-8px,10px)rotate(4deg);}50%{transform:translate(-3px,6px)rotate(-3deg);}75%{transform:translate(-10px,4px)rotate(3deg);}100%{transform:translate(0,0)rotate(0deg);} }
+      body {
+        background: #FFC0CB;
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .popup {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.4);
+        backdrop-filter: blur(4px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        text-align: center;
+        z-index: 1000;
+      }
+
+      .popup-box {
+        background: rgba(255,255,255,0.2);
+        padding: 26px 36px;
+        border-radius: 20px;
+        color: white;
+      }
+
+      .popup button {
+        margin-top: 18px;
+        padding: 12px 28px;
+        border-radius: 12px;
+        border: none;
+        background: white;
+        color: #3472CE;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .container {
+        opacity: 0;
+        transition: opacity .9s ease;
+        padding: 18vh 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .card {
+        width: 90%;
+        max-width: 600px;
+        background: rgba(255,255,255,0.35);
+        padding: 28px;
+        border-radius: 20px;
+        box-shadow: 0 0 40px rgba(0,0,0,0.1);
+        backdrop-filter: blur(10px);
+        position: relative;
+        min-height: 200px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 0;
+        color: #3472CE;
+      }
+
+      #text {
+        line-height: 25px;
+        font-size: 16px;
+        color: #3472CE;
+        white-space: pre-line;
+      }
+
+      .btn-play {
+        margin: 0 auto 22px auto;
+        display: block;
+        width: 200px;
+        padding: 12px;
+        border-radius: 12px;
+        background: #3472CE;
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+      }
+
+      .wa-btn {
+        margin: 34px auto 30px auto;
+        display: block;
+        width: 230px;
+        padding: 12px;
+        border-radius: 14px;
+        background: white;
+        color: #1AAD4A;
+        text-align: center;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .butterfly {
+        width: 95px;
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        opacity: 0.9;
+        animation: fly 8s ease-in-out infinite;
+      }
+
+      @keyframes fly {
+        0% { transform: translate(0,0) rotate(0deg); }
+        25% { transform: translate(-10px,10px) rotate(4deg); }
+        50% { transform: translate(-4px,6px) rotate(-3deg); }
+        75% { transform: translate(-12px,6px) rotate(3deg); }
+        100% { transform: translate(0,0) rotate(0deg); }
+      }
     </style>
   </head>
 
   <body>
+    <!-- POPUP FIRST -->
     <div class="popup" id="intro">
       <div class="popup-box">
         <p>Boleh aku bicara jujur sebentar?</p>
@@ -27,22 +132,29 @@
       </div>
     </div>
 
+    <!-- MUSIC -->
     <audio id="bgm" loop>
       <source src="https://litter.catbox.moe/uwmrq71prfaw879b.mp3" type="audio/mpeg" />
     </audio>
 
+    <!-- CONTENT -->
     <div class="container" id="content">
       <div>
         <button class="btn-play" onclick="playMusic()">Putar Musik 🎶</button>
+
         <div class="card">
-          <img class="butterfly" src="https://cdn-icons-png.flaticon.com/512/7651/7651366.png" />
+          <img class="butterfly" src="https://cdn-icons-png.flaticon.com/512/940/940886.png" />
           <h1>Hai, Cena.</h1>
           <p id="text"></p>
         </div>
-        <a class="wa-btn" target="_blank" href="https://wa.me/6281234567890">Balas aku di WhatsApp 💬</a>
+
+        <a class="wa-btn" target="_blank" href="https://wa.me/6281234567890">
+          Balas aku di WhatsApp 💬
+        </a>
       </div>
     </div>
 
+    <!-- SCRIPT -->
     <script>
       const fullText = `Sebelum tahun ini selesai,
 aku cuma ingin berterima kasih.
@@ -121,11 +233,31 @@ Menguatkan tanpa meninggikan suara.
 Dan kalau suatu hari sepi itu kembali,
 aku ingin jadi tempat ia singgah sebentar.
 Bukan untuk menghapusnya.
-Tapi agar ia tidak lagi terasa sendirian.`;
+Tapi agar ia tidak lagi terasa sendirian.`; 
 
-      function startPage(){ document.getElementById("intro").style.display = "none"; document.getElementById("content").style.opacity = "1"; }
-      function playMusic(){ document.getElementById("bgm").play(); document.querySelector(".btn-play").style.display = "none"; startTyping(); }
-      function startTyping(){ const target = document.getElementById("text"); let i = 0; function type(){ if(i < fullText.length){ target.textContent += fullText.charAt(i); i++; setTimeout(type, 18); } } type(); }
+      function startPage() {
+        document.getElementById("intro").style.display = "none";
+        document.getElementById("content").style.opacity = "1";
+      }
+
+      function playMusic() {
+        document.getElementById("bgm").play();
+        document.querySelector(".btn-play").style.display = "none";
+        startTyping();
+      }
+
+      function startTyping() {
+        const target = document.getElementById("text");
+        let i = 0;
+        function type() {
+          if(i < fullText.length){
+            target.textContent += fullText.charAt(i);
+            i++;
+            setTimeout(type, 55);  // semakin besar angka, semakin lambat
+          }
+        }
+        type();
+      }
     </script>
   </body>
 </html>
