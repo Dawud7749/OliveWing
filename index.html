@@ -45,7 +45,7 @@ h1{text-align:center;color:#3472CE;margin-top:0;}
 </div>
 
 <script>
-const SPEED = 77.59;
+const SPEED = 74.59;
 const SLOW = 160;
 
 const full = `Sebelum tahun ini selesai,
@@ -139,24 +139,25 @@ function playMusic(){
 function typeWriter(){
   const t = document.getElementById("text");
   let i = 0, last = performance.now(), speed = SPEED;
-  let hasScrolled = false; // pastikan scroll hanya sekali
+  let didScroll = false;
 
   function loop(now){
     if(now - last >= speed){
       last = now;
       const next = full.substring(0, i);
       let html = next.replace(/\n/g, "<br>");
+      t.innerHTML = html;
 
-      // kalau sudah sampai bagian lirik → perlambat + scroll sekali
-      if(!hasScrolled && next.includes("Bila kau berkenan")){
+      // ketika sampai bagian lirik → slow + scroll sekali →
+      if(!didScroll && next.includes("Bila kau berkenan")){
+        didScroll = true;
         speed = SLOW;
-        hasScrolled = true;
-        setTimeout(()=> {
-          document.querySelector(".card").scrollIntoView({behavior:"smooth"});
+        setTimeout(()=>{
+          document.getElementById("scrollTarget")
+            .scrollIntoView({behavior:"smooth", block:"center"});
         }, 200);
       }
 
-      t.innerHTML = html;
       i++;
     }
 
@@ -166,6 +167,7 @@ function typeWriter(){
   }
   requestAnimationFrame(loop);
 }
+
 
 </script>
 
