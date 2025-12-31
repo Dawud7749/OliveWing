@@ -16,44 +16,41 @@ h1{text-align:center;color:#3472CE;margin-top:0;}
 .btn-play{margin:0 auto 22px auto;display:block;width:200px;padding:12px;border-radius:12px;background:#3472CE;color:white;border:none;font-size:15px;cursor:pointer;}
 .imsg-btn{margin:28px auto 30px auto;display:block;width:230px;padding:12px;border-radius:14px;background:white;color:#3472CE;text-align:center;font-weight:700;text-decoration:none;border:2px solid #3472CE;}
 .butterfly{width:95px;position:absolute;top:-20px;right:-20px;opacity:0.9;animation:fly 8s ease-in-out infinite;}
-.lyric{opacity:0;transition:opacity 2s ease;color:#3472CE;text-align:center;font-weight:600;margin-top:20px;}
 @keyframes fly{0%{transform:translate(0,0);}25%{transform:translate(-12px,10px);}50%{transform:translate(-4px,8px);}75%{transform:translate(-14px,4px);}100%{transform:translate(0,0);}}
 </style>
 </head>
 
 <body>
 <div class="popup" id="intro">
-<div class="popup-box">
-<p>Boleh aku bicara jujur sebentar?</p>
-<button onclick="startPage()">Lanjut</button>
-</div>
+  <div class="popup-box">
+    <p>Boleh aku bicara jujur sebentar?</p>
+    <button onclick="startPage()">Lanjut</button>
+  </div>
 </div>
 
 <audio id="bgm" preload="auto" loop>
-<source src="https://litter.catbox.moe/uwmrq71prfaw879b.mp3" type="audio/mpeg">
+  <source src="https://litter.catbox.moe/uwmrq71prfaw879b.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container" id="content">
-<div>
-<button class="btn-play" onclick="playMusic()">Putar Musik 🎶</button>
-<div class="card">
-<img class="butterfly" src="https://cdn-icons-png.flaticon.com/512/940/940886.png" />
-<h1>Hai, Cena.</h1>
-<p id="text"></p>
-<div id="lyric" class="lyric">
-“Bila kau berkenan biarkanku di sampingmu.
-Berkuranglah satu jiwa yang sepi.”
-</div>
-</div>
-<a class="imsg-btn" href="sms:+6282115180885&body=Hai%20aku%20baru%20baca%20web%20kamu%20💗">
-Balas aku di iMessage 💗
-</a>
-</div>
+  <div>
+    <button class="btn-play" onclick="playMusic()">Putar Musik 🎶</button>
+    <div class="card">
+      <img class="butterfly" src="https://cdn-icons-png.flaticon.com/512/940/940886.png" />
+      <h1>Hai, Cena.</h1>
+      <p id="text"></p>
+    </div>
+    <a class="imsg-btn" href="imessage://dawud7749@icloud.com">
+      Balas aku di iMessage 💗
+    </a>
+  </div>
 </div>
 
 <script>
-const SPEED = 80.8;
-const beforeLirik = `Sebelum tahun ini selesai,
+const SPEED = 81.59;
+const SLOW = 160;
+
+const full = `Sebelum tahun ini selesai,
 aku cuma ingin berterima kasih.
 Untuk hadirmu yang lembut.
 Untuk kata yang menenangkan.
@@ -111,9 +108,8 @@ mari kita jaga ruang ini pelan-pelan.
 Biar waktu yang membuktikan,
 dan usaha kita yang meneruskan.
 
-Seperti kata Tulus,`;
-
-const afterLirik = `Aku tidak datang membawa kepastian yang tergesa.
+Seperti kata Tulus, **"Bila kau berkenan biarkanku di sampingmu. Berkuranglah satu jiwa yang sepi."**
+Aku tidak datang membawa kepastian yang tergesa.
 Aku datang dengan langkah pelan.
 Dengan kesediaan untuk tinggal.
 Bukan hanya saat mudah.
@@ -121,49 +117,42 @@ Tapi juga saat hari terasa berat.
 
 Kalau kamu mengizinkan,
 aku ingin berjalan di sampingmu.
-Belajar memahami diam dan riuhmu.
+Belajar memahami diam dan suaramu.
 Menjaga tanpa mengekang.
+Menguatkan tanpa meninggikan suara.
 
 Dan kalau suatu hari sepi itu kembali,
 aku ingin jadi tempat ia singgah sebentar.
 Bukan untuk menghapusnya.
-Tapi agar ia tidak lagi terasa sendirian.`;
+Tapi agar ia tidak lagi terasa sendirian.`
 
-function startPage(){
-document.getElementById("intro").style.display="none";
-document.getElementById("content").style.opacity="1";
-}
+function startPage(){ intro.style.display="none"; content.style.opacity=1; }
 
 function playMusic(){
-const audio=document.getElementById("bgm");
-audio.play().catch(()=>alert("Tap lagi untuk mulai musik"));
-document.querySelector(".btn-play").style.display="none";
-typewriter();
+  bgm.play().catch(()=>alert("tap sekali lagi untuk mulai"));
+  document.querySelector(".btn-play").style.display="none";
+  typeWriter();
 }
 
-function typewriter(){
-const text=document.getElementById("text");
-const lyric=document.getElementById("lyric");
-let i=0,j=0,last=performance.now(),mode="before";
-
-function loop(now){
-if(mode==="before"){
-if(now-last>=SPEED){
-last=now;
-if(i<beforeLirik.length){text.textContent+=beforeLirik.charAt(i);i++;}
-else{mode="after";lyric.style.opacity=1;last=now+2000;}
-}
-}else{
-if(now-last>=SPEED){
-last=now;
-if(j<afterLirik.length){text.textContent+=afterLirik.charAt(j);j++;}
-}
-}
-requestAnimationFrame(loop);
-}
-requestAnimationFrame(loop);
+function typeWriter(){
+  const t=document.getElementById("text");
+  let i=0, last=performance.now(), speed=SPEED;
+  function loop(now){
+    if(now-last>=speed){
+      last=now;
+      const next=full.substring(0,i);
+      t.innerHTML=next.replace(/\n/g,"<br>");
+      const seg=full.substring(i,i+25);
+      if(seg.includes("Bila kau berkenan")){
+        speed=SLOW;
+        document.querySelector(".card").scrollIntoView({behavior:"smooth"});
+      }
+      i++;
+    }
+    if(i<full.length){requestAnimationFrame(loop);}
+  }
+  requestAnimationFrame(loop);
 }
 </script>
 </body>
 </html>
-
