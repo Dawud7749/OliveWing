@@ -1,136 +1,25 @@
-
 <html>
   <head>
     <meta charset="UTF-8" />
     <title>Untuk Kamu</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-      body {
-        background: #FFC0CB;
-        font-family: "Poppins", sans-serif;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        overflow-x: hidden;
-      }
-
-  /* Popup */
-  .popup {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(4px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: white;
-    text-align: center;
-    z-index: 1000;
-  }
-  .popup-box {
-    background: rgba(255,255,255,0.15);
-    padding: 24px 32px;
-    border-radius: 18px;
-    backdrop-filter: blur(8px);
-  }
-  .popup button {
-    margin-top: 18px;
-    padding: 10px 26px;
-    border-radius: 14px;
-    border: 2px solid white;
-    background: white;
-    color: #FF4081;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-  }
-
-  /* Content */
-  .container {
-    opacity: 0;
-    transition: opacity .9s ease;
-    padding-top: 12vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
-  .card {
-    width: 88%;
-    max-width: 520px;
-    background: rgba(255,255,255,0.12);
-    padding: 28px;
-    border-radius: 20px;
-    box-shadow: 0 0 40px rgba(0,0,0,0.1);
-    backdrop-filter: blur(8px);
-    position: relative;
-    z-index: 2;
-  }
-
-  h1 { text-align: center; margin-top: 0; color: white; }
-
-  #text {
-    color: white;
-    line-height: 23px;
-    font-size: 15px;
-    white-space: pre-line;
-  }
-
-  .btn-play {
-    margin: 0 auto 20px auto;
-    display: block;
-    width: 180px;
-    padding: 10px;
-    border-radius: 12px;
-    background: white;
-    color: #FF4081;
-    font-size: 15px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-  }
-
-  .wa-btn {
-    margin: 26px auto 32px auto;
-    display: block;
-    width: 210px;
-    padding: 12px;
-    border-radius: 12px;
-    background: white;
-    color: #1AAD4A;
-    font-size: 17px;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 700;
-  }
-
-  /* Butterfly */
-  .butterfly {
-    position: absolute;
-    width: 85px;
-    top: -18px;
-    right: -14px;
-    opacity: .9;
-    animation: fly 6.5s ease-in-out infinite;
-  }
-  @keyframes fly {
-    0% { transform: translate(0,0) rotate(0deg); }
-    25% { transform: translate(-8px,10px) rotate(4deg); }
-    50% { transform: translate(-3px,6px) rotate(-3deg); }
-    75% { transform: translate(-10px,4px) rotate(3deg); }
-    100% { transform: translate(0,0) rotate(0deg); }
-  }
-</style>
-```
-
+      body { background: #FFC0CB; font-family: "Poppins", sans-serif; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow-x: hidden; }
+      .popup { position: fixed; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); display: flex; justify-content: center; align-items: center; flex-direction: column; color: white; text-align: center; z-index: 1000; }
+      .popup-box { background: rgba(255,255,255,0.15); padding: 24px 32px; border-radius: 18px; backdrop-filter: blur(8px); color: white; }
+      .popup button { margin-top: 18px; padding: 10px 26px; border-radius: 14px; border: 2px solid white; background: white; color: #FF4081; font-size: 16px; font-weight: 700; cursor: pointer; }
+      .container { opacity: 0; transition: opacity .9s ease; padding-top: 12vh; width: 100%; display: flex; justify-content: center; align-items: flex-start; }
+      .card { width: 88%; max-width: 520px; background: rgba(255,255,255,0.12); padding: 28px; border-radius: 20px; box-shadow: 0 0 40px rgba(0,0,0,0.1); backdrop-filter: blur(8px); position: relative; z-index: 2; }
+      h1 { text-align: center; margin-top: 0; color: white; }
+      #text { color: white; line-height: 23px; font-size: 15px; white-space: pre-line; }
+      .btn-play { margin: 0 auto 20px auto; display: block; width: 180px; padding: 10px; border-radius: 12px; background: white; color: #FF4081; font-size: 15px; font-weight: 600; border: none; cursor: pointer; }
+      .wa-btn { margin: 26px auto 32px auto; display: block; width: 210px; padding: 12px; border-radius: 12px; background: white; color: #1AAD4A; font-size: 17px; text-align: center; text-decoration: none; font-weight: 700; }
+      .butterfly { position: absolute; width: 85px; top: -18px; right: -14px; opacity: .9; animation: fly 6.5s ease-in-out infinite; }
+      @keyframes fly { 0%{transform:translate(0,0)rotate(0deg);}25%{transform:translate(-8px,10px)rotate(4deg);}50%{transform:translate(-3px,6px)rotate(-3deg);}75%{transform:translate(-10px,4px)rotate(3deg);}100%{transform:translate(0,0)rotate(0deg);} }
+    </style>
   </head>
 
   <body>
-    <!-- POPUP -->
     <div class="popup" id="intro">
       <div class="popup-box">
         <p>Boleh aku bicara jujur sebentar?</p>
@@ -138,136 +27,105 @@
       </div>
     </div>
 
-```
-<!-- MUSIC -->
-<audio id="bgm" loop>
-  <source src="https://litter.catbox.moe/uwmrq71prfaw879b.mp3" type="audio/mpeg" />
-</audio>
+    <audio id="bgm" loop>
+      <source src="https://litter.catbox.moe/uwmrq71prfaw879b.mp3" type="audio/mpeg" />
+    </audio>
 
-<!-- CONTENT -->
-<div class="container" id="content">
-  <div>
-    <button class="btn-play" onclick="playMusic()">Putar Musik 🎶</button>
-
-    <div class="card">
-      <img class="butterfly" src="https://cdn-icons-png.flaticon.com/512/7651/7651366.png" />
-      <h1>Hai, Cena.</h1>
-      <p id="text"></p>
+    <div class="container" id="content">
+      <div>
+        <button class="btn-play" onclick="playMusic()">Putar Musik 🎶</button>
+        <div class="card">
+          <img class="butterfly" src="https://cdn-icons-png.flaticon.com/512/7651/7651366.png" />
+          <h1>Hai, Cena.</h1>
+          <p id="text"></p>
+        </div>
+        <a class="wa-btn" target="_blank" href="https://wa.me/6281234567890">Balas aku di WhatsApp 💬</a>
+      </div>
     </div>
 
-    <a class="wa-btn" target="_blank" href="https://wa.me/6281234567890">Balas aku di WhatsApp 💬</a>
-  </div>
-</div>
+    <script>
+      const fullText = `Sebelum tahun ini selesai,
+aku cuma ingin berterima kasih.
+Untuk hadirmu yang lembut.
+Untuk kata yang menenangkan.
+Untuk waktu yang kamu bagi tanpa aku minta.
+Kamu jadi warna yang indah di ceritaku tahun ini.
+Sederhana, tapi terasa.
 
-<!-- SCRIPT -->
-<script>
-  const fullText = `
-  Sebelum tahun ini selesai,
-  aku cuma ingin berterima kasih.
-  Untuk hadirmu yang lembut.
-  Untuk kata yang menenangkan.
-  Untuk waktu yang kamu bagi tanpa aku minta.
-  Kamu jadi warna yang indah di ceritaku tahun ini.
-  Sederhana, tapi terasa.
-  
-  Sejak pertama ketemu, aku tidak pernah membayangkan kita sampai sejauh ini.
-  Ngobrol sampai lupa jam.
-  Cerita sampai hati lega.
-  Berbagi mimpi, pandangan, dan sisi diri yang biasanya kita simpan sendiri.
-  Pelan-pelan, aku mulai mengenal kamu.
-  Dan pelan-pelan juga, kamu jadi tempat yang nyaman untuk kembali.
-  
-  Dari semua obrolan itu, aku belajar tentang kamu.
-  Tentang caramu merasa.
-  Tentang caramu melihat dunia.
-  Tentang caramu bertahan meski harinya berat.
-  Sampai akhirnya aku sadar.
-  Ada chemistry yang tumbuh.
-  Ada kecocokan yang muncul diam-diam.
-  Ada rasa yang kita simpan dalam diam.
-  
-  Aku juga dengar harapanmu.
-  Tentang hubungan yang tenang.
-  Tentang hadir yang tidak menghakimi.
-  Yang tidak meremehkan ceritamu.
-  Yang bisa menasihati dengan lembut.
-  Yang bisa memimpin saat kamu ragu.
-  Yang suaranya tetap pelan, karena keras itu bikin kamu takut.
-  
-  Aku dengar semuanya, Cen.
-  Dan aku ingin bilang.
-  Aku mau mengusahakan itu.
-  Bukan sebagai sosok yang sempurna.
-  Tapi sebagai seseorang yang datang dengan niat baik.
-  Yang memberi ruang aman.
-  Biar kamu bisa jadi dirimu sendiri tanpa takut salah.
-  
-  Sekarang kita bukan remaja yang jalan tanpa arah.
-  Kita dua orang dewasa yang paham kalau arah itu penting.
-  Jadi malam ini aku ingin jujur.
-  
-  Aku nyaman dengan kamu.
-  Aku suka ritme kita yang pelan dan ringan.
-  Aku ingin mengenal kamu lebih dalam.
-  Dengan tempo yang santai.
-  Tanpa buru-buru.
-  Aku cuma ingin kamu tahu arahku.
-  Supaya di antara kita tidak ada tanda tanya.
-  
-  Kalau kamu juga merasa hangat yang sama,
-  mari kita jaga ruang ini pelan-pelan.
-  Biar waktu yang membuktikan,
-  dan usaha kita yang meneruskan.
-  
-  Seperti kata Tulus, 
-  “Bila kau berkenan biarkanku di sampingmu.
-  Berkuranglah satu jiwa yang sepi.”
-  
-  Aku tidak datang membawa kepastian yang tergesa.
-  Aku datang dengan langkah pelan.
-  Dengan kesediaan untuk tinggal.
-  Bukan hanya saat mudah.
-  Tapi juga saat hari terasa berat.
-  
-  Kalau kamu mengizinkan,
-  aku ingin berjalan di sampingmu.
-  Belajar memahami diam dan suaramu.
-  Menjaga tanpa mengekang.
-  Menguatkan tanpa meninggikan suara.
-  
-  Dan kalau suatu hari sepi itu kembali,
-  aku ingin jadi tempat ia singgah sebentar.
-  Bukan untuk menghapusnya.
-  Tapi agar ia tidak lagi terasa sendirian.
+Sejak pertama ketemu,
+aku tidak pernah membayangkan kita sampai sejauh ini.
+Ngobrol sampai lupa jam.
+Cerita sampai hati lega.
+Berbagi mimpi, pandangan, dan sisi diri yang biasanya kita simpan sendiri.
+Pelan-pelan, aku mulai mengenal kamu.
+Dan pelan-pelan juga, kamu jadi tempat yang nyaman untuk kembali.
 
-function startPage(){
-    document.getElementById("intro").style.display = "none";
-    document.getElementById("content").style.opacity = "1";
-  }
+Dari semua obrolan itu, aku belajar tentang kamu.
+Tentang caramu merasa.
+Tentang caramu melihat dunia.
+Tentang caramu bertahan meski harinya berat.
+Sampai akhirnya aku sadar.
+Ada chemistry yang tumbuh.
+Ada kecocokan yang muncul diam-diam.
+Ada rasa yang kita simpan dalam diam.
 
-  function playMusic(){
-    document.getElementById("bgm").play();
-    document.querySelector(".btn-play").style.display = "none";
-    startTyping();
-  }
+Aku juga dengar harapanmu.
+Tentang hubungan yang tenang.
+Tentang hadir yang tidak menghakimi.
+Yang tidak meremehkan ceritamu.
+Yang bisa menasihati dengan lembut.
+Yang bisa memimpin saat kamu ragu.
+Yang suaranya tetap pelan, karena keras itu bikin kamu takut.
 
-  function startTyping(){
-    const target = document.getElementById("text");
-    let i = 0;
-    function type(){
-      if(i < fullText.length){
-        target.textContent += fullText.charAt(i);
-        i++;
-        setTimeout(type, 18);
-      }
-    }
-    type();
-  }
-</script>
+Aku dengar semuanya, Cen.
+Dan aku ingin bilang.
+Aku mau mengusahakan itu.
+Bukan sebagai sosok yang sempurna.
+Tapi sebagai seseorang yang datang dengan niat baik.
+Yang memberi ruang aman.
+Biar kamu bisa jadi dirimu sendiri tanpa takut salah.
 
-</script>
-```
+Sekarang kita bukan remaja yang jalan tanpa arah.
+Kita dua orang dewasa yang paham kalau arah itu penting.
+Jadi malam ini aku ingin jujur.
 
+Aku nyaman dengan kamu.
+Aku suka ritme kita yang pelan dan ringan.
+Aku ingin mengenal kamu lebih dalam.
+Dengan tempo yang santai.
+Tanpa buru-buru.
+Aku cuma ingin kamu tahu arahku.
+Supaya di antara kita tidak ada tanda tanya.
+
+Kalau kamu juga merasa hangat yang sama,
+mari kita jaga ruang ini pelan-pelan.
+Biar waktu yang membuktikan,
+dan usaha kita yang meneruskan.
+
+Seperti kata Tulus,
+“Bila kau berkenan biarkanku di sampingmu.
+Berkuranglah satu jiwa yang sepi.”
+
+Aku tidak datang membawa kepastian yang tergesa.
+Aku datang dengan langkah pelan.
+Dengan kesediaan untuk tinggal.
+Bukan hanya saat mudah.
+Tapi juga saat hari terasa berat.
+
+Kalau kamu mengizinkan,
+aku ingin berjalan di sampingmu.
+Belajar memahami diam dan suaramu.
+Menjaga tanpa mengekang.
+Menguatkan tanpa meninggikan suara.
+
+Dan kalau suatu hari sepi itu kembali,
+aku ingin jadi tempat ia singgah sebentar.
+Bukan untuk menghapusnya.
+Tapi agar ia tidak lagi terasa sendirian.`;
+
+      function startPage(){ document.getElementById("intro").style.display = "none"; document.getElementById("content").style.opacity = "1"; }
+      function playMusic(){ document.getElementById("bgm").play(); document.querySelector(".btn-play").style.display = "none"; startTyping(); }
+      function startTyping(){ const target = document.getElementById("text"); let i = 0; function type(){ if(i < fullText.length){ target.textContent += fullText.charAt(i); i++; setTimeout(type, 18); } } type(); }
+    </script>
   </body>
 </html>
-
