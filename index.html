@@ -47,7 +47,7 @@ h1{text-align:center;color:#3472CE;margin-top:0;}
 </div>
 
 <script>
-const SPEED = 77.59;
+const SPEED = 73.59;
 const SLOW = 160;
 
 const full = `Sebelum tahun ini selesai,
@@ -135,29 +135,39 @@ function playMusic(){
 }
 
 function typeWriter(){
-  const t=document.getElementById("text");
-  let i=0, last=performance.now(), speed=SPEED;
-  function loop(now){
-    if(now-last>=speed){
-      last=now;
-      const next=full.substring(0,i);
-      t.innerHTML=next.replace(/\n/g,"<br>");
-      const seg=full.substring(i,i+25);
-     if(seg.includes("Bila kau berkenan")){
-    speed=SLOW;
-    document.querySelector(".card").scrollIntoView({behavior:"smooth"});
-    t.innerHTML = next
-      .replace(/\n/g,"<br>")
-      .replace(/Seperti kata Tulus, \*\*\"Bila kau berkenan biarkanku di sampingmu\. Berkuranglah satu jiwa yang sepi\.\"/, 
-      'Seperti kata Tulus, <strong>"Bila kau berkenan biarkanku di sampingmu. Berkuranglah satu jiwa yang sepi."</strong>');
-}
+  const t = document.getElementById("text");
+  let i = 0, last = performance.now(), speed = SPEED;
 
+  function loop(now){
+    if(now - last >= speed){
+      last = now;
+      const next = full.substring(0, i);
+      let html = next.replace(/\n/g, "<br>");
+
+      // ketika mulai menyentuh kalimat lirik — perlambat + scroll
+      if(next.includes("Bila kau berkenan")){
+        speed = SLOW;
+        document.querySelector(".card").scrollIntoView({behavior:"smooth"});
+      }
+
+      // BOLD-kan bagian lirik SETIAP frame supaya tetap ter-update
+      html = html.replace(
+        /Seperti kata Tulus, <br>\"Bila kau berkenan biarkanku di sampingmu\. Berkuranglah satu jiwa yang sepi\.\"/,
+        'Seperti kata Tulus, <br><strong>"Bila kau berkenan biarkanku di sampingmu. Berkuranglah satu jiwa yang sepi."</strong>'
+      );
+
+      t.innerHTML = html;
       i++;
     }
-    if(i<full.length){requestAnimationFrame(loop);}
+
+    if(i < full.length){
+      requestAnimationFrame(loop);
+    }
   }
+
   requestAnimationFrame(loop);
 }
+
 </script>
 </body>
 </html>
