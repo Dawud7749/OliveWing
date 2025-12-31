@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>Hai, Cena.</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
@@ -36,18 +36,16 @@ h1{text-align:center;color:#3472CE;margin-top:0;}
   <div>
     <button class="btn-play" onclick="playMusic()">Putar Musik 🎶</button>
     <div class="card">
-      <img class="butterfly" src="https://cdn-icons-png.flaticon.com/512/940/940886.png" />
+      <img class="butterfly" src="https://cdn-icons-png.flaticon.com/512/940/940886.png">
       <h1>Hai, Cena.</h1>
       <p id="text"></p>
     </div>
-    <a class="imsg-btn" href="imessage://dawud7749@icloud.com">
-      Balas aku di iMessage 💗
-    </a>
+    <a class="imsg-btn" href="imessage://dawud7749@icloud.com">Balas aku di iMessage 💗</a>
   </div>
 </div>
 
 <script>
-const SPEED = 77.59;
+const SPEED = 81.59;
 const SLOW = 160;
 
 const full = `Sebelum tahun ini selesai,
@@ -108,7 +106,7 @@ mari kita jaga ruang ini pelan-pelan.
 Biar waktu yang membuktikan,
 dan usaha kita yang meneruskan.
 
-Seperti kata Tulus, **"Bila kau berkenan biarkanku di sampingmu. Berkuranglah satu jiwa yang sepi."**
+Seperti kata Tulus, <strong>"Bila kau berkenan biarkanku di sampingmu. Berkuranglah satu jiwa yang sepi."</strong>
 Aku tidak datang membawa kepastian yang tergesa.
 Aku datang dengan langkah pelan.
 Dengan kesediaan untuk tinggal.
@@ -126,23 +124,26 @@ aku ingin jadi tempat ia singgah sebentar.
 Bukan untuk menghapusnya.
 Tapi agar ia tidak lagi terasa sendirian.`
 
-function startPage(){ intro.style.display="none"; content.style.opacity=1; }
+function startPage(){
+  document.getElementById("intro").style.display="none";
+  document.getElementById("content").style.opacity="1";
+}
 
 function playMusic(){
-  bgm.play().catch(()=>alert("tap sekali lagi untuk mulai"));
+  const audio = document.getElementById("bgm");
+  audio.play().catch(()=>alert("tap lagi untuk mulai musik"));
   document.querySelector(".btn-play").style.display="none";
   typeWriter();
 }
 
 function typeWriter(){
-  const t=document.getElementById("text");
+  const t = document.getElementById("text");
   let i=0, last=performance.now(), speed=SPEED;
   function loop(now){
     if(now-last>=speed){
       last=now;
       const next=full.substring(0,i);
-      let html=next.replace(/
-/g,"<br>");
+      let html=next.replace(/\n/g,"<br>");
       if(next.includes("Bila kau berkenan")){
         speed=SLOW;
         document.querySelector(".card").scrollIntoView({behavior:"smooth"});
@@ -150,10 +151,13 @@ function typeWriter(){
       t.innerHTML=html;
       i++;
     }
-    if(i<full.length){requestAnimationFrame(loop);}
+    if(i<full.length){
+      requestAnimationFrame(loop);
+    }
   }
   requestAnimationFrame(loop);
 }
 </script>
+
 </body>
-</html>`
+</html>
