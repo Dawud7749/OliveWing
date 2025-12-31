@@ -47,7 +47,7 @@ h1{text-align:center;color:#3472CE;margin-top:0;}
 </div>
 
 <script>
-const SPEED = 81.59;
+const SPEED = 77.59;
 const SLOW = 160;
 
 const full = `Sebelum tahun ini selesai,
@@ -143,10 +143,15 @@ function typeWriter(){
       const next=full.substring(0,i);
       t.innerHTML=next.replace(/\n/g,"<br>");
       const seg=full.substring(i,i+25);
-      if(seg.includes("Bila kau berkenan")){
-        speed=SLOW;
-        document.querySelector(".card").scrollIntoView({behavior:"smooth"});
-      }
+     if(seg.includes("Bila kau berkenan")){
+    speed=SLOW;
+    document.querySelector(".card").scrollIntoView({behavior:"smooth"});
+    t.innerHTML = next
+      .replace(/\n/g,"<br>")
+      .replace(/Seperti kata Tulus, \*\*\"Bila kau berkenan biarkanku di sampingmu\. Berkuranglah satu jiwa yang sepi\.\"/, 
+      'Seperti kata Tulus, <strong>"Bila kau berkenan biarkanku di sampingmu. Berkuranglah satu jiwa yang sepi."</strong>');
+}
+
       i++;
     }
     if(i<full.length){requestAnimationFrame(loop);}
