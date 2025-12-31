@@ -28,8 +28,8 @@
       </div>
     </div>
 
-    <audio id="bgm" loop>
-      <source src="https://files.catbox.moe/ybg78j.mp3" type="audio/mpeg" />
+    <audio id="bgm" preload="auto" loop>
+      <source src="https://litter.catbox.moe/uwmrq71prfaw879b.mp3" type="audio/mpeg" />
     </audio>
 
     <div class="container" id="content">
@@ -135,7 +135,7 @@ function startPage(){
 
 function playMusic(){
   const audio=document.getElementById("bgm");
-  audio.play();
+  audio.play().catch(err => alert("Tekan Putar Musik lagi"));
   document.querySelector(".btn-play").style.display="none";
   typeAll();
 }
@@ -174,3 +174,4 @@ function typeAll(){
 
 </body>
 </html>
+
